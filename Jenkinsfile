@@ -4,16 +4,11 @@ pipeline {
             label 'docker-agent'
         }
     }
-    tools {
-        maven 'Maven3'
-        jdk 'JDK21'
-    }
+
     stages {
         stage('Build') {
             steps {
-                withMaven {
-                    sh 'mvn clean package -DskipTests'
-                }
+                sh 'mvn clean package -DskipTests'
             }
         }
         stage('Test') {
