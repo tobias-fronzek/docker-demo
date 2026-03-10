@@ -2,8 +2,12 @@ pipeline {
     agent {
         node {
             label 'docker-agent'
-            }
-      }
+        }
+    }
+    tools {
+        maven 'Maven3'
+        jdk 'JDK21'
+    }
     stages {
         stage('Build') {
             steps {
