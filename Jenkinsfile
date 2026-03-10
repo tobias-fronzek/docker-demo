@@ -4,7 +4,9 @@ pipeline {
             label 'docker-agent'
         }
     }
-
+    tools {
+        maven 'maven-3.9'
+    }
     stages {
         stage('Build') {
             steps {
