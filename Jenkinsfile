@@ -6,14 +6,10 @@ pipeline {
       }
     stages {
         stage('Build') {
-//             agent {
-//                 docker {
-//                     image 'maven:3.9-eclipse-temurin-21'
-//                 }
-//             }
-
             steps {
-                sh 'mvn clean package -DskipTests'
+                withMaven {
+                    sh 'mvn clean package -DskipTests'
+                }
             }
         }
         stage('Test') {
